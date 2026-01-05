@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Inicial - Portal Estudantil</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/progress.css">
+</head>
+<body>
+
+  <!-- Barra de Progresso -->
+  <div class="progress-container">
+    <div class="progress-step completed">Fase 1</div>
+    <div class="progress-step">Fase 2</div>
+    <div class="progress-step">Fase 3</div>
+    <div class="progress-step">Fase 4</div>
+  </div>
+
+  <div class="container">
+
+    <!-- Logo Topo -->
+    <header>
+      <img src="assets/logo.png" alt="Logo do Portal" class="logo">
+    </header>
+
+    <!-- Formulário -->
+    <form id="cadastro-form">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="celular">Número de Celular:</label>
+      <input type="text" id="celular" name="celular" placeholder="(XX) XXXXX-XXXX" required>
+
+      <label for="faculdade">Faculdade:</label>
+      <select id="faculdade" name="faculdade" required>
+        <option value="">Selecione</option>
+        <option value="Unip">Unip</option>
+        <option value="Multivix">Multivix</option>
+        <option value="Faesa">Faesa</option>
+        <option value="Outra">Outra</option>
+      </select>
+      <input type="text" id="outra-faculdade" name="outra-faculdade" placeholder="Digite sua faculdade">
+
+      <label for="curso">Curso:</label>
+      <select id="curso" name="curso" required>
+        <option value="">Selecione</option>
+        <!-- Cursos do MEC serão adicionados aqui -->
+      </select>
+
+      <!-- Frase motivacional -->
+      <div class="frase-motivacional">
+        Faça suas atividades agora pagando pouco! <strong>A partir de R$30,00 todas suas atividades do seu portal</strong>
+      </div>
+
+      <!-- Botão Prosseguir -->
+      <button type="submit">Prosseguir</button>
+    </form>
+
+    <!-- Rodapé -->
+    <footer>
+      <img src="assets/logo.png" alt="Logo do Portal" class="logo-rodape">
+      <p>
+        🔒 Site seguro e criptografado<br>
+        ⚡ Facilidade para o seu dia a dia<br>
+        💬 Dúvidas? Nos chamem no WhatsApp<br>
+        ✅ Suporte até a conclusão do seu portal ou trabalho
+      </p>
+      <ul class="servicos">
+        <li>Provas</li>
+        <li>Trabalhos</li>
+        <li>Portal</li>
+        <li>Extracurriculares</li>
+      </ul>
+    </footer>
+
+  </div>
+
+  <script src="script/progress.js"></script>
+  <script src="script/script.js"></script>
+</body>
+</html>
