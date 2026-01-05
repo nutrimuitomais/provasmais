@@ -1,35 +1,55 @@
+// CONFIGURAÇÕES EMAILJS
+(function () {
+  emailjs.init("SUA_PUBLIC_KEY_AQUI");
+})();
+
 const valor = localStorage.getItem("valor") || "0.00";
-const valorFinal = document.getElementById("valorFinal");
-const botoesPagamento = document.querySelectorAll(".pagamento");
 const btnPagar = document.getElementById("btnPagar");
+const botoesPagamento = document.querySelectorAll(".pagamento");
 
 let metodoSelecionado = null;
 
-// Mostrar valor
-valorFinal.textContent = `R$ ${valor}`;
+document.getElementById("valorFinal").textContent = `R$ ${valor}`;
 
-// Seleção do pagamento
+// Seleção do método
 botoesPagamento.forEach(botao => {
   botao.addEventListener("click", () => {
-
     botoesPagamento.forEach(b => b.classList.remove("selected"));
     botao.classList.add("selected");
-
-    metodoSelecionado = botao.getAttribute("data-pagamento");
+    metodoSelecionado = botao.dataset.pagamento;
     btnPagar.disabled = false;
   });
 });
 
-// Simulação de pagamento
+// PAGAMENTO + ENVIO DE E-MAIL
 btnPagar.addEventListener("click", () => {
-  if (!metodoSelecionado) return;
 
-  alert(
-    "Pagamento iniciado!\n\n" +
-    "Método: " + metodoSelecionado.toUpperCase() + "\n" +
-    "Valor: R$ " + valor + "\n\n" +
-    "Na próxima etapa será integrado o gateway real."
-  );
+  const dados = {
+    numero_aluno: localStorage.getItem("numeroAluno"),
+    nome: localStorage.getItem("nome"),
+    celular: localStorage.getItem("celular"),
+    faculdade: localStorage.getItem("faculdade"),
+    curso: localStorage.getItem("curso"),
+    servico: localStorage.getItem("servicoSelecionado"),
+    valor: valor
+  };
 
-  // Aqui futuramente entra o link do gateway
+  emailjs.send(
+    "SEU_SERVICE_ID",
+    "SEU_TEMPLATE_ID",
+    dados
+  ).then(() => {
+
+    alert(
+      "Pedido confirmado!\n\n" +
+      "Resumo enviado para nosso sistema.\n" +
+      "Entraremos em contato pelo WhatsApp."
+    );
+
+    localStorage.clear();
+
+  }).catch(() => {
+    alert("Erro ao enviar o pedido. Tente novamente.");
+  });
+
 });
