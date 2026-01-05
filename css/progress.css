@@ -1,36 +1,47 @@
 .progress-container {
+  width: 100%;
+  max-width: 900px;
   display: flex;
   justify-content: space-between;
-  margin: 20px auto;
-  max-width: 800px;
+  margin: 20px auto 30px;
+  padding: 0 10px;
 }
 
 .progress-step {
   flex: 1;
   text-align: center;
-  padding: 10px;
-  border-bottom: 4px solid #ccc;
-  position: relative;
   font-weight: bold;
+  color: #9aa9c2;
+  position: relative;
+  padding-bottom: 10px;
 }
 
-.progress-step.completed {
-  border-color: #4CAF50;
-  color: #4CAF50;
-}
-
-.progress-step:not(:last-child)::after {
+/* Linha */
+.progress-step::after {
   content: '';
   position: absolute;
-  right: -50%;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  bottom: 0;
   width: 100%;
   height: 4px;
-  background-color: #ccc;
+  background-color: #d6e2f5;
+  transform: translateX(-50%);
+  border-radius: 5px;
   z-index: -1;
 }
 
-.progress-step.completed:not(:last-child)::after {
-  background-color: #4CAF50;
+/* Último não precisa da linha completa */
+.progress-step:last-child::after {
+  width: 50%;
+  left: 0;
+  transform: none;
+}
+
+/* Concluído */
+.progress-step.completed {
+  color: #1a73e8;
+}
+
+.progress-step.completed::after {
+  background-color: #1a73e8;
 }
