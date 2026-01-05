@@ -17,46 +17,74 @@
     <div class="progress-step">Fase 4</div>
   </div>
 
-  <div class="container">
-    <!-- Logo Topo -->
-    <header>
-      <img src="assets/logo.png" alt="Logo do Portal" class="logo">
-    </header>
+<div class="container">
 
-    <!-- Formulário -->
-    <form id="cadastro-form">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
+  <!-- LOGO -->
+  <img src="assets/logo.png" alt="Logo do Portal" class="logo">
 
-      <label for="celular">Número de Celular:</label>
-      <input type="text" id="celular" name="celular" placeholder="(XX) XXXXX-XXXX" required>
+  <!-- TÍTULO -->
+  <h1>Preencha seus dados</h1>
+  <p class="subtitle">Organizamos tudo para você concluir suas atividades com tranquilidade</p>
 
-      <label for="faculdade">Faculdade:</label>
-      <select id="faculdade" name="faculdade" required>
-        <option value="">Selecione</option>
-        <option value="Unip">Unip</option>
-        <option value="Multivix">Multivix</option>
-        <option value="Faesa">Faesa</option>
-        <option value="Outra">Outra</option>
-      </select>
-      <input type="text" id="outra-faculdade" name="outra-faculdade" placeholder="Digite sua faculdade">
+  <!-- PROGRESSO -->
+  <div class="progress">
+    <span class="active">Dados</span>
+    <span>Serviço</span>
+    <span>Detalhes</span>
+    <span>Pagamento</span>
+  </div>
 
-      <label for="curso">Curso:</label>
-      <select id="curso" name="curso" required>
-        <option value="">Selecione</option>
-        <option value="Enfermagem">Enfermagem</option>
-        <option value="Medicina">Medicina</option>
-        <option value="Fisioterapia">Fisioterapia</option>
-        <option value="Odontologia">Odontologia</option>
-        <option value="Outro">Outro</option>
-      </select>
+  <!-- FORMULÁRIO -->
+  <form id="form-dados">
 
-      <div class="frase-motivacional">
-        Faça suas atividades agora pagando pouco! <strong>A partir de R$30,00 todas suas atividades do seu portal</strong>
+    <div class="form-grid">
+      <div class="form-group">
+        <input type="text" placeholder="Seu nome completo" required>
       </div>
 
-      <button type="submit">Prosseguir</button>
-    </form>
+      <div class="form-group">
+        <input type="tel" placeholder="Número de celular (WhatsApp)" required>
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <select required>
+          <option value="">Selecione sua faculdade</option>
+          <option>UNIP</option>
+          <option>MULTIVIX</option>
+          <option>FAESA</option>
+          <option>Outra</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <select required>
+          <option value="">Selecione seu curso</option>
+          <option>Enfermagem</option>
+          <option>Biomedicina</option>
+          <option>Farmácia</option>
+          <option>Fisioterapia</option>
+          <option>Nutrição</option>
+          <option>Psicologia</option>
+          <option>Educação Física</option>
+          <option>Outro</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ALERTA -->
+    <p class="subtitle" style="margin-top: 15px;">
+      ⚠️ Não geramos códigos de redes sociais. Atenção a golpes.
+    </p>
+
+    <!-- BOTÃO -->
+    <button type="submit">Prosseguir</button>
+
+  </form>
+
+</div>
+
 
     <!-- Rodapé -->
     <footer>
