@@ -1,88 +1,96 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const detalhesContainer = document.getElementById("detalhes-servico");
-  const btnProsseguir = document.getElementById("btn-prosseguir");
-  const btnVoltar = document.getElementById("btn-voltar");
+const servico = localStorage.getItem("servicoSelecionado");
+const conteudo = document.getElementById("conteudo");
+const btn = document.getElementById("btnContinuar");
 
-  // Recuperar serviço selecionado
-  const servico = localStorage.getItem("servicoSelecionado");
-  let preco = 0;
+let valorFinal = 0;
 
-  // Função para criar input dinamicamente
-  function criarInput(id, label, placeholder = "") {
-    return `
-      <label for="${id}">${label}</label>
-      <input type="text" id="${id}" placeholder="${placeholder}" required>
-    `;
-  }
-
-  // Carregar conteúdo conforme serviço
-  if(servico === "provas") {
-    preco = 43.00;
-    detalhesContainer.innerHTML = `
-      ${criarInput("matricula", "Matrícula completa", "Digite sua matrícula")}
-      <p>Valor: R$ ${preco.toFixed(2)}</p>
-      <p>Mais de 12 matérias → adicional de R$7,00/matéria</p>
-      <p>Se não souber a quantidade, alguma matéria não será feita, avisaremos caso tenha mais de 12 matérias.</p>
-      <button id="btn-upsell">Adicionar Portal por +R$2,00?</button>
-    `;
-
-    // Habilitar botão prosseguir apenas se preencher matrícula ou aceitar upsell
-    const btnUpsell = document.getElementById("btn-upsell");
-    btnUpsell.addEventListener("click", () => {
-      localStorage.setItem("servicoSelecionado", "provas-portal");
-      window.location.reload(); // Recarrega página para Provas + Portal
-    });
-
-  } else if(servico === "provas-portal") {
-    preco = 45.00;
-    detalhesContainer.innerHTML = `
-      ${criarInput("matricula", "Matrícula completa", "Digite sua matrícula")}
-      <p>Valor: R$ ${preco.toFixed(2)}</p>
-      <p>Mais de 12 matérias → adicional de R$7,00/matéria</p>
-      <p>Se não souber a quantidade, alguma matéria não será feita, avisaremos caso tenha mais de 12 matérias.</p>
-    `;
-
-  } else if(servico === "tcc" || servico === "pre-tcc") {
-    detalhesContainer.innerHTML = `
-      <p>Estamos em manutenção nessas opções.</p>
-      <p>Use o botão "Voltar" para selecionar outro serviço.</p>
-    `;
-    btnProsseguir.disabled = true;
-
-  } else if(servico === "extracurriculares") {
-    preco = 4.99;
-    detalhesContainer.innerHTML = `
-      <p>
-        Fique tranquilo! Caso você não consiga gerar nenhum certificado durante 31 dias, devolveremos seu dinheiro.<br>
-        Lembrando que temos acesso quando um certificado é gerado no site com suas informações.<br>
-        Use as mesmas informações de login que utilizou em nosso site, pois contabilizamos no sistema seu Gmail.<br>
-        Te daremos 20 dicas de sites confiáveis, 100% seguros e gratuitos, para você baixar seus certificados do seu curso específico.
+function campoMatricula() {
+  return `
+    <div class="form-group">
+      <input type="text" id="matricula" placeholder="Matrícula completa" required>
+      <p class="subtitle">
+        Preencha corretamente, respeitando letras maiúsculas e numeração.
       </p>
-      <p>Valor para liberar o conteúdo: R$ ${preco.toFixed(2)}</p>
-      <label for="email">Seu Gmail:</label>
-      <input type="email" id="email" required placeholder="Digite seu Gmail">
-    `;
-  }
+    </div>
 
-  btnProsseguir.addEventListener("click", () => {
-    // Armazenar dados adicionais
-    if(servico === "provas" || servico === "provas-portal") {
-      const matricula = document.getElementById("matricula").value.trim();
-      if(!matricula) { alert("Preencha a matrícula."); return; }
-      localStorage.setItem("matricula", matricula);
-    } else if(servico === "extracurriculares") {
-      const email = document.getElementById("email").value.trim();
-      if(!email) { alert("Preencha seu Gmail."); return; }
-      localStorage.setItem("emailExtracurricular", email);
-    }
+    <div class="form-group">
+      <input type="number" id="qtdMaterias" placeholder="Quantidade de matérias (opcional)">
+      <p class="subtitle">
+        Acima de 12 matérias será cobrado R$ 7,00 por matéria extra.
+      </p>
+    </div>
+  `;
+}
 
-    localStorage.setItem("preco", preco.toFixed(2));
+if (servico === "provas") {
+  valorFinal = 43.00;
 
-    // Redirecionar para Fase 4
-    window.location.href = "fase4.html";
+  conteudo.innerHTML = `
+    <h2>Provas</h2>
+    ${campoMatricula()}
+    <h3>Valor: R$ 43,00</h3>
+
+    <div class="card" id="upsell">
+      Adicione Portal por apenas <strong>R$ 2,00</strong>
+    </div>
+  `;
+
+  btn.style.display = "block";
+
+  document.getElementById("upsell").addEventListener("click", () => {
+    localStorage.setItem("servicoSelecionado", "provas_portal");
+    localStorage.setItem("valor", "45.00");
+    window.location.reload();
   });
 
-  btnVoltar.addEventListener("click", () => {
-    window.location.href = "fase2.html";
-  });
+}
+
+else if (servico === "provas_portal") {
+  valorFinal = 45.00;
+
+  conteudo.innerHTML = `
+    <h2>Provas + Portal</h2>
+    ${campoMatricula()}
+    <h3>Valor: R$ 45,00</h3>
+  `;
+
+  btn.style.display = "block";
+}
+
+else if (servico === "tcc" || servico === "pre_tcc") {
+  conteudo.innerHTML = `
+    <h2>Em manutenção</h2>
+    <p class="subtitle">
+      As opções TCC e Pré-TCC estão temporariamente indisponíveis.
+    </p>
+    <button onclick="history.back()">Voltar</button>
+  `;
+}
+
+else if (servico === "extracurriculares") {
+  valorFinal = 4.99;
+
+  conteudo.innerHTML = `
+    <h2>Extracurriculares</h2>
+
+    <p class="subtitle">
+      🔒 Fique tranquilo: caso você não consiga gerar nenhum certificado
+      durante 31 dias, devolveremos seu dinheiro.
+    </p>
+
+    <p class="subtitle">
+      ✔ Sites 100% gratuitos, seguros e confiáveis<br>
+      ✔ 20 sugestões de acordo com seu curso<br>
+      ✔ Acesso por 31 dias
+    </p>
+
+    <h3>Valor: R$ 4,99</h3>
+  `;
+
+  btn.style.display = "block";
+}
+
+btn.addEventListener("click", () => {
+  localStorage.setItem("valor", valorFinal.toFixed(2));
+  window.location.href = "fase4.html";
 });
