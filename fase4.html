@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="style/progress.css">
 </head>
 <body>
-
-  <!-- Barra de Progresso -->
   <div class="progress-container">
     <div class="progress-step completed">Fase 1</div>
     <div class="progress-step completed">Fase 2</div>
@@ -18,10 +16,33 @@
   </div>
 
   <div class="container">
-
-    <!-- Logo Topo -->
     <header>
       <img src="assets/logo.png" alt="Logo do Portal" class="logo">
     </header>
 
-    <h2>Resumo
+    <h2>Resumo do Pedido</h2>
+    <div id="resumo-container"></div>
+
+    <h3>Pagamento</h3>
+    <p>Escolha a forma de pagamento:</p>
+    <button id="pix">PIX</button>
+    <button id="debito">Débito</button>
+    <button id="credito">Crédito</button>
+
+    <button id="finalizar">Finalizar</button>
+
+    <footer>
+      <img src="assets/logo.png" alt="Logo do Portal" class="logo-rodape">
+      <p>
+        🔒 Site seguro e criptografado<br>
+        ⚡ Facilidade para o seu dia a dia<br>
+        💬 Dúvidas? Nos chamem no WhatsApp<br>
+        ✅ Suporte até a conclusão do seu portal ou trabalho
+      </p>
+    </footer>
+  </div>
+
+  <script src="script/progress.js"></script>
+  <script src="script/fase4.js"></script>
+</body>
+</html>
