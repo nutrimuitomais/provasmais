@@ -1,34 +1,4 @@
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin: 20px 0;
-  justify-content: center;
-}
-
-.card {
-  flex: 1 1 150px;
-  padding: 20px;
-  background-color: #f3f3f3;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.card.selected {
-  border-color: #4CAF50;
-  background-color: #e6ffe6;
-}
-
-.card:hover {
-  border-color: #4CAF50;
-}
-/* ======================
-   RESET BÁSICO
-====================== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -36,190 +6,148 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ======================
-   BODY E CONTAINER
-====================== */
+/* BODY */
 body {
-  background-color: #f9faff;
+  background-color: #f4f8ff;
   color: #333;
-  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
 }
 
+/* CONTAINER PRINCIPAL */
 .container {
+  width: 100%;
   max-width: 900px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  background-color: #ffffff;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* ======================
-   LOGO
-====================== */
-header .logo {
-  display: block;
-  margin: 0 auto 20px;
-  max-width: 180px;
-}
-
-footer .logo-rodape {
-  display: block;
-  margin: 10px auto;
-  max-width: 120px;
-}
-
-/* ======================
-   TÍTULOS
-====================== */
-h2, h3 {
-  color: #1a73e8;
-  text-align: center;
+/* HEADER / LOGO */
+header {
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
-/* ======================
-   FORMULÁRIO
-====================== */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.logo {
+  max-width: 180px;
 }
 
-form label {
+/* TÍTULOS */
+h2, h3 {
+  text-align: center;
+  color: #1a73e8;
+  margin-bottom: 20px;
+}
+
+/* FORMULÁRIO */
+form {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
   font-weight: 600;
   color: #1a73e8;
 }
 
-form input, form select {
+input, select {
   padding: 12px;
-  border: 1.5px solid #cdd7eb;
   border-radius: 8px;
+  border: 1.5px solid #cfd9ee;
   font-size: 16px;
-  transition: all 0.3s ease;
 }
 
-form input:focus, form select:focus {
-  border-color: #1a73e8;
+input:focus, select:focus {
   outline: none;
-  box-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
+  border-color: #1a73e8;
+  box-shadow: 0 0 6px rgba(26, 115, 232, 0.3);
 }
 
+/* FRASE MOTIVACIONAL */
+.frase-motivacional {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: #155ab6;
+  margin: 15px 0;
+}
+
+/* BOTÕES */
 button {
-  padding: 15px;
+  padding: 14px;
+  margin-top: 10px;
+  background-color: #1a73e8;
+  color: white;
   font-size: 16px;
   font-weight: bold;
-  color: #fff;
-  background-color: #1a73e8;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:disabled {
-  background-color: #a6c8ff;
-  cursor: not-allowed;
+  transition: 0.3s;
 }
 
 button:hover:not(:disabled) {
   background-color: #155ab6;
 }
 
-/* ======================
-   CARDS (Fase 2)
-====================== */
+button:disabled {
+  background-color: #a7c5ff;
+  cursor: not-allowed;
+}
+
+/* CARDS (FASE 2) */
 .cards-container {
+  width: 100%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
 }
 
 .card {
-  flex: 1 1 150px;
+  width: 180px;
   padding: 25px;
-  background-color: #f3f8ff;
-  border: 2px solid #cdd7eb;
-  border-radius: 12px;
   text-align: center;
-  font-weight: bold;
+  border-radius: 12px;
+  border: 2px solid #cfd9ee;
+  background-color: #f2f7ff;
   cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 140px;
-}
-
-.card.selected {
-  border-color: #1a73e8;
-  background-color: #d0e2ff;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .card:hover {
   border-color: #1a73e8;
-  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.2);
+  box-shadow: 0 6px 15px rgba(26, 115, 232, 0.2);
 }
 
-/* ======================
-   BARRA DE PROGRESSO
-====================== */
-.progress-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px auto;
-  max-width: 800px;
-}
-
-.progress-step {
-  flex: 1;
-  text-align: center;
-  padding: 12px;
-  border-bottom: 4px solid #cdd7eb;
-  position: relative;
-  font-weight: bold;
-  border-radius: 4px;
-}
-
-.progress-step.completed {
+.card.selected {
+  background-color: #dbe9ff;
   border-color: #1a73e8;
-  color: #1a73e8;
 }
 
-.progress-step:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: -50%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  height: 4px;
-  background-color: #cdd7eb;
-  z-index: -1;
-}
-
-.progress-step.completed:not(:last-child)::after {
-  background-color: #1a73e8;
-}
-
-/* ======================
-   FRASES MOTIVACIONAIS
-====================== */
-.frase-motivacional {
-  text-align: center;
-  font-weight: 600;
-  font-size: 18px;
-  margin: 15px 0;
-  color: #155ab6;
-}
-
-/* ======================
-   RODAPÉ
-====================== */
+/* RODAPÉ */
 footer {
-  text-align: center;
   margin-top: 30px;
+  text-align: center;
   font-size: 14px;
   color: #555;
+}
+
+.logo-rodape {
+  max-width: 120px;
+  margin-bottom: 10px;
 }
 
 footer ul.servicos {
@@ -227,31 +155,20 @@ footer ul.servicos {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 footer ul.servicos li {
-  background-color: #eaf1ff;
-  padding: 5px 12px;
+  background-color: #e7f0ff;
+  padding: 6px 12px;
   border-radius: 6px;
-  color: #1a73e8;
   font-weight: 600;
+  color: #1a73e8;
 }
 
-/* ======================
-   RESPONSIVO
-====================== */
+/* RESPONSIVO */
 @media (max-width: 768px) {
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .card {
-    width: 80%;
-  }
-
-  .container {
-    padding: 15px;
+    width: 90%;
   }
 }
