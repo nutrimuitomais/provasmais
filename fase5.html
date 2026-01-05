@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <img src="assets/logo.png" class="logo" alt="Logo">
+
+  <h1>Finalizar pagamento</h1>
+  <p class="subtitle">Escolha a forma de pagamento para concluir</p>
+
+  <!-- PROGRESSO -->
+  <div class="progress">
+    <span>Dados</span>
+    <span>Serviço</span>
+    <span>Detalhes</span>
+    <span class="active">Pagamento</span>
+  </div>
+
+  <!-- VALOR -->
+  <div class="card selected">
+    <h2>Total a pagar</h2>
+    <h1 id="valorFinal">R$ 0,00</h1>
+  </div>
+
+  <!-- FORMAS DE PAGAMENTO -->
+  <div class="cards-container">
+
+    <div class="card pagamento" data-pagamento="pix">
+      💠 PIX<br>
+      <small>Aprovação imediata</small>
+    </div>
+
+    <div class="card pagamento" data-pagamento="cartao">
+      💳 Cartão de Crédito<br>
+      <small>Até 12x</small>
+    </div>
+
+    <div class="card pagamento" data-pagamento="debito">
+      🏧 Cartão de Débito<br>
+      <small>À vista</small>
+    </div>
+
+  </div>
+
+  <button id="btnPagar" disabled>Pagar agora</button>
+
+  <p class="subtitle" style="margin-top:15px;">
+    🔒 Pagamento seguro • Dados protegidos • Suporte via WhatsApp
+  </p>
+
+</div>
+
+<script src="js/pagamento.js"></script>
+</body>
+</html>
