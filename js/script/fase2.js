@@ -1,28 +1,23 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card");
-  const btnProsseguir = document.getElementById("btn-prosseguir");
-  let servicoSelecionado = null;
+const cards = document.querySelectorAll(".card");
+const botao = document.getElementById("btnProsseguir");
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      // Remove seleção de todos os cards
-      cards.forEach(c => c.classList.remove("selected"));
-      // Seleciona apenas o card clicado
-      card.classList.add("selected");
-      // Armazena o serviço selecionado
-      servicoSelecionado = card.getAttribute("data-servico");
-      // Habilita botão prosseguir
-      btnProsseguir.disabled = false;
-    });
+let opcaoSelecionada = null;
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+
+    cards.forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
+
+    opcaoSelecionada = card.getAttribute("data-value");
+    botao.disabled = false;
+
   });
+});
 
-  btnProsseguir.addEventListener("click", () => {
-    if (!servicoSelecionado) return;
+botao.addEventListener("click", () => {
+  if (!opcaoSelecionada) return;
 
-    // Salvar escolha no localStorage
-    localStorage.setItem("servicoSelecionado", servicoSelecionado);
-
-    // Redirecionar para fase 3
-    window.location.href = "fase3.html";
-  });
+  localStorage.setItem("servicoSelecionado", opcaoSelecionada);
+  window.location.href = "fase3.html";
 });
