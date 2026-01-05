@@ -2,42 +2,33 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes do Serviço - Portal Estudantil</title>
+  <title>Detalhes do Serviço</title>
   <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="style/progress.css">
 </head>
 <body>
-  <div class="progress-container">
-    <div class="progress-step completed">Fase 1</div>
-    <div class="progress-step completed">Fase 2</div>
-    <div class="progress-step completed">Fase 3</div>
-    <div class="progress-step">Fase 4</div>
+
+<div class="container">
+
+  <img src="assets/logo.png" class="logo" alt="Logo">
+
+  <h1>Detalhes do serviço</h1>
+  <p class="subtitle">Confira as informações antes de continuar</p>
+
+  <!-- PROGRESSO -->
+  <div class="progress">
+    <span>Dados</span>
+    <span>Serviço</span>
+    <span class="active">Detalhes</span>
+    <span>Pagamento</span>
   </div>
 
-  <div class="container">
-    <header>
-      <img src="assets/logo.png" alt="Logo do Portal" class="logo">
-    </header>
+  <!-- CONTEÚDO DINÂMICO -->
+  <div id="conteudo"></div>
 
-    <h2>Detalhes do Serviço</h2>
-    <div id="detalhes-servico"></div>
+  <button id="btnContinuar" style="display:none;">Continuar</button>
 
-    <button id="btn-prosseguir" disabled>Prosseguir</button>
-    <button id="btn-voltar">Voltar</button>
+</div>
 
-    <footer>
-      <img src="assets/logo.png" alt="Logo do Portal" class="logo-rodape">
-      <p>
-        🔒 Site seguro e criptografado<br>
-        ⚡ Facilidade para o seu dia a dia<br>
-        💬 Dúvidas? Nos chamem no WhatsApp<br>
-        ✅ Suporte até a conclusão do seu portal ou trabalho
-      </p>
-    </footer>
-  </div>
-
-  <script src="script/progress.js"></script>
-  <script src="script/fase3.js"></script>
+<script src="js/fase3.js"></script>
 </body>
 </html>
