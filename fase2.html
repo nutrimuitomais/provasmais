@@ -2,50 +2,45 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seleção de Serviço - Portal Estudantil</title>
+  <title>Escolha o Serviço</title>
   <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="style/progress.css">
 </head>
 <body>
-  <div class="progress-container">
-    <div class="progress-step completed">Fase 1</div>
-    <div class="progress-step completed">Fase 2</div>
-    <div class="progress-step">Fase 3</div>
-    <div class="progress-step">Fase 4</div>
-  </div>
 
   <div class="container">
-    <header>
-      <img src="assets/logo.png" alt="Logo do Portal" class="logo">
-    </header>
 
-    <h2>Selecione o serviço desejado</h2>
-    <p>Escolha apenas uma opção:</p>
+    <!-- LOGO -->
+    <img src="assets/logo.png" class="logo" alt="Logo">
 
-    <div class="cards-container">
-      <div class="card" data-servico="provas">Provas</div>
-      <div class="card" data-servico="provas-portal">Provas + Portal</div>
-      <div class="card" data-servico="trabalhos">Trabalhos</div>
-      <div class="card" data-servico="tcc">TCC</div>
-      <div class="card" data-servico="pre-tcc">Pré-TCC</div>
-      <div class="card" data-servico="extracurriculares">Extracurriculares</div>
+    <!-- TÍTULO -->
+    <h1>Selecione o serviço desejado</h1>
+    <p class="subtitle">Escolha apenas uma opção para continuar</p>
+
+    <!-- PROGRESSO -->
+    <div class="progress">
+      <span>Dados</span>
+      <span class="active">Serviço</span>
+      <span>Detalhes</span>
+      <span>Pagamento</span>
     </div>
 
-    <button id="btn-prosseguir" disabled>Prosseguir</button>
+    <!-- CARDS -->
+    <div class="cards-container" id="cards">
 
-    <footer>
-      <img src="assets/logo.png" alt="Logo do Portal" class="logo-rodape">
-      <p>
-        🔒 Site seguro e criptografado<br>
-        ⚡ Facilidade para o seu dia a dia<br>
-        💬 Dúvidas? Nos chamem no WhatsApp<br>
-        ✅ Suporte até a conclusão do seu portal ou trabalho
-      </p>
-    </footer>
+      <div class="card" data-value="provas">Provas</div>
+      <div class="card" data-value="provas_portal">Provas + Portal</div>
+      <div class="card" data-value="trabalhos">Trabalhos</div>
+      <div class="card" data-value="tcc">TCC</div>
+      <div class="card" data-value="pre_tcc">Pré-TCC</div>
+      <div class="card" data-value="extracurriculares">Extracurriculares</div>
+
+    </div>
+
+    <!-- BOTÃO -->
+    <button id="btnProsseguir" disabled>Prosseguir</button>
+
   </div>
 
-  <script src="script/progress.js"></script>
-  <script src="script/fase2.js"></script>
+  <script src="js/fase2.js"></script>
 </body>
 </html>
