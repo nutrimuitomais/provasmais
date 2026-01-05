@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seleção de Serviço - Portal Estudantil</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/progress.css">
+</head>
+<body>
+
+  <!-- Barra de Progresso -->
+  <div class="progress-container">
+    <div class="progress-step completed">Fase 1</div>
+    <div class="progress-step completed">Fase 2</div>
+    <div class="progress-step">Fase 3</div>
+    <div class="progress-step">Fase 4</div>
+  </div>
+
+  <div class="container">
+
+    <!-- Logo Topo -->
+    <header>
+      <img src="assets/logo.png" alt="Logo do Portal" class="logo">
+    </header>
+
+    <h2>Selecione o serviço desejado</h2>
+    <p>Escolha apenas uma opção:</p>
+
+    <div class="cards-container">
+      <div class="card" data-servico="provas">Provas</div>
+      <div class="card" data-servico="provas-portal">Provas + Portal</div>
+      <div class="card" data-servico="trabalhos">Trabalhos</div>
+      <div class="card" data-servico="tcc">TCC</div>
+      <div class="card" data-servico="pre-tcc">Pré-TCC</div>
+      <div class="card" data-servico="extracurriculares">Extracurriculares</div>
+    </div>
+
+    <button id="btn-prosseguir" disabled>Prosseguir</button>
+
+    <!-- Rodapé -->
+    <footer>
+      <img src="assets/logo.png" alt="Logo do Portal" class="logo-rodape">
+      <p>
+        🔒 Site seguro e criptografado<br>
+        ⚡ Facilidade para o seu dia a dia<br>
+        💬 Dúvidas? Nos chamem no WhatsApp<br>
+        ✅ Suporte até a conclusão do seu portal ou trabalho
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="script/progress.js"></script>
+  <script src="script/fase2.js"></script>
+</body>
+</html>
