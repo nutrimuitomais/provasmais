@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Escolha o Serviço</title>
-  <link rel="stylesheet" href="style/style.css">
+<meta charset="UTF-8">
+<title>Serviço</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/progress.css">
 </head>
+
 <body>
+<div class="container">
 
-  <div class="container">
+<img src="assets/logo.png" class="logo">
 
-    <!-- LOGO -->
-    <img src="assets/logo.png" class="logo" alt="Logo">
+<div class="progress">
+  <div class="step active"><span>1</span></div>
+  <div class="step active"><span>2</span></div>
+  <div class="step"><span>3</span></div>
+  <div class="step"><span>4</span></div>
+</div>
 
-    <!-- TÍTULO -->
-    <h1>Selecione o serviço desejado</h1>
-    <p class="subtitle">Escolha apenas uma opção para continuar</p>
+<h1>Escolha o Serviço</h1>
 
-    <!-- PROGRESSO -->
-    <div class="progress">
-      <span>Dados</span>
-      <span class="active">Serviço</span>
-      <span>Detalhes</span>
-      <span>Pagamento</span>
-    </div>
+<select id="servico">
+  <option value="Prova">Prova</option>
+  <option value="Trabalho">Trabalho</option>
+  <option value="Portal">Portal</option>
+</select>
 
-    <!-- CARDS -->
-    <div class="cards-container" id="cards">
+<button onclick="avancar()">Prosseguir</button>
 
-      <div class="card" data-value="provas">Provas</div>
-      <div class="card" data-value="provas_portal">Provas + Portal</div>
-      <div class="card" data-value="trabalhos">Trabalhos</div>
-      <div class="card" data-value="tcc">TCC</div>
-      <div class="card" data-value="pre_tcc">Pré-TCC</div>
-      <div class="card" data-value="extracurriculares">Extracurriculares</div>
+</div>
 
-    </div>
-
-    <!-- BOTÃO -->
-    <button id="btnProsseguir" disabled>Prosseguir</button>
-
-  </div>
-
-  <script src="js/fase2.js"></script>
+<script src="js/fase2.js"></script>
 </body>
 </html>
