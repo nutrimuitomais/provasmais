@@ -1,42 +1,40 @@
-const resumo = document.getElementById("resumo");
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumo Final</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
 
-// GERAR NÚMERO ÚNICO DO ALUNO
-const numeroAluno = "ALUNO-" + Date.now();
+<header class="top-header">
+  <img src="assets/logo.png" class="logo">
 
-// RECUPERAR DADOS
-const nome = localStorage.getItem("nome") || "-";
-const celular = localStorage.getItem("celular") || "-";
-const faculdade = localStorage.getItem("faculdade") || "-";
-const curso = localStorage.getItem("curso") || "-";
-const servico = localStorage.getItem("servicoSelecionado") || "-";
-const valor = localStorage.getItem("valor") || "0.00";
+  <div class="progress-bar">
+    <div class="progress" style="width: 90%;"></div>
+  </div>
+</header>
 
-// SALVAR NÚMERO DO ALUNO
-localStorage.setItem("numeroAluno", numeroAluno);
+<main class="container">
 
-// MONTAR RESUMO
-resumo.innerHTML = `
-  <div class="card selected">
-    <p><strong>Nº do aluno:</strong> ${numeroAluno}</p>
-    <p><strong>Nome:</strong> ${nome}</p>
-    <p><strong>Celular:</strong> ${celular}</p>
-    <p><strong>Faculdade:</strong> ${faculdade}</p>
-    <p><strong>Curso:</strong> ${curso}</p>
-    <p><strong>Serviço:</strong> ${servico}</p>
-    <p><strong>Valor final:</strong> R$ ${valor}</p>
+  <h1>Resumo da Solicitação</h1>
+
+  <div id="resumoCard" class="card"></div>
+
+  <div class="alert" style="margin-top:20px">
+    🔒 Seus dados estão protegidos. Após o pagamento entraremos em contato via WhatsApp.
   </div>
 
-  <p class="subtitle" style="margin-top:20px;">
-    🔒 Seus dados estão protegidos.<br>
-    📲 Após a confirmação do pagamento, entraremos em contato pelo WhatsApp.
-  </p>
-`;
+  <button class="button" style="margin-top:30px" onclick="irPagamento()">
+    Ir para Pagamento
+  </button>
 
-// BOTÃO PAGAMENTO
-document.getElementById("btnPagamento").addEventListener("click", () => {
-  alert(
-    "Pagamento será integrado na próxima etapa.\n\n" +
-    "Resumo gerado com sucesso.\n" +
-    "Número do aluno: " + numeroAluno
-  );
-});
+</main>
+
+<footer class="footer">
+  © 2026 • Plataforma Acadêmica • Todos os direitos reservados
+</footer>
+
+<script src="js/fase4.js"></script>
+</body>
+</html>
