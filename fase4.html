@@ -1,96 +1,40 @@
-const servico = localStorage.getItem("servicoSelecionado");
-const conteudo = document.getElementById("conteudo");
-const btn = document.getElementById("btnContinuar");
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumo Final</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
 
-let valorFinal = 0;
+<header class="top-header">
+  <img src="assets/logo.png" class="logo">
 
-function campoMatricula() {
-  return `
-    <div class="form-group">
-      <input type="text" id="matricula" placeholder="Matrícula completa" required>
-      <p class="subtitle">
-        Preencha corretamente, respeitando letras maiúsculas e numeração.
-      </p>
-    </div>
+  <div class="progress-bar">
+    <div class="progress" style="width: 90%;"></div>
+  </div>
+</header>
 
-    <div class="form-group">
-      <input type="number" id="qtdMaterias" placeholder="Quantidade de matérias (opcional)">
-      <p class="subtitle">
-        Acima de 12 matérias será cobrado R$ 7,00 por matéria extra.
-      </p>
-    </div>
-  `;
-}
+<main class="container">
 
-if (servico === "provas") {
-  valorFinal = 43.00;
+  <h1>Resumo da Solicitação</h1>
 
-  conteudo.innerHTML = `
-    <h2>Provas</h2>
-    ${campoMatricula()}
-    <h3>Valor: R$ 43,00</h3>
+  <div id="resumoCard" class="card"></div>
 
-    <div class="card" id="upsell">
-      Adicione Portal por apenas <strong>R$ 2,00</strong>
-    </div>
-  `;
+  <div class="alert" style="margin-top:20px">
+    🔒 Seus dados estão protegidos. Após o pagamento entraremos em contato via WhatsApp.
+  </div>
 
-  btn.style.display = "block";
+  <button class="button" style="margin-top:30px" onclick="irPagamento()">
+    Ir para Pagamento
+  </button>
 
-  document.getElementById("upsell").addEventListener("click", () => {
-    localStorage.setItem("servicoSelecionado", "provas_portal");
-    localStorage.setItem("valor", "45.00");
-    window.location.reload();
-  });
+</main>
 
-}
+<footer class="footer">
+  © 2026 • Plataforma Acadêmica • Todos os direitos reservados
+</footer>
 
-else if (servico === "provas_portal") {
-  valorFinal = 45.00;
-
-  conteudo.innerHTML = `
-    <h2>Provas + Portal</h2>
-    ${campoMatricula()}
-    <h3>Valor: R$ 45,00</h3>
-  `;
-
-  btn.style.display = "block";
-}
-
-else if (servico === "tcc" || servico === "pre_tcc") {
-  conteudo.innerHTML = `
-    <h2>Em manutenção</h2>
-    <p class="subtitle">
-      As opções TCC e Pré-TCC estão temporariamente indisponíveis.
-    </p>
-    <button onclick="history.back()">Voltar</button>
-  `;
-}
-
-else if (servico === "extracurriculares") {
-  valorFinal = 4.99;
-
-  conteudo.innerHTML = `
-    <h2>Extracurriculares</h2>
-
-    <p class="subtitle">
-      🔒 Fique tranquilo: caso você não consiga gerar nenhum certificado
-      durante 31 dias, devolveremos seu dinheiro.
-    </p>
-
-    <p class="subtitle">
-      ✔ Sites 100% gratuitos, seguros e confiáveis<br>
-      ✔ 20 sugestões de acordo com seu curso<br>
-      ✔ Acesso por 31 dias
-    </p>
-
-    <h3>Valor: R$ 4,99</h3>
-  `;
-
-  btn.style.display = "block";
-}
-
-btn.addEventListener("click", () => {
-  localStorage.setItem("valor", valorFinal.toFixed(2));
-  window.location.href = "fase4.html";
-});
+<script src="js/fase4.js"></script>
+</body>
+</html>
