@@ -110,3 +110,75 @@ button:hover {
 .info p {
   margin-bottom: 8px;
 }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Escolha do Serviço</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- PROGRESSO -->
+  <div class="progress">
+    <div class="step done">Dados</div>
+    <div class="step active">Serviço</div>
+    <div class="step">Detalhes</div>
+    <div class="step">Pagamento</div>
+  </div>
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <img src="assets/logo.png" class="logo" alt="Logo">
+
+    <h1>Escolha o serviço</h1>
+    <p class="subtitle">
+      Selecione apenas uma opção para continuar
+    </p>
+
+    <!-- CARDS -->
+    <div class="card" onclick="selecionarServico('Provas', 43)">
+      <h3>Provas</h3>
+      <p>Realizamos suas provas com segurança</p>
+      <strong>R$ 43,00</strong>
+    </div>
+
+    <div class="card" onclick="selecionarServico('Provas + Portal', 45)">
+      <h3>Provas + Portal</h3>
+      <p>Acesso completo ao portal do aluno</p>
+      <strong>R$ 45,00</strong>
+    </div>
+
+    <div class="card" onclick="selecionarServico('Trabalhos', 57)">
+      <h3>Trabalhos</h3>
+      <p>Trabalhos acadêmicos personalizados</p>
+      <strong>R$ 57,00</strong>
+    </div>
+
+    <div class="card disabled">
+      <h3>TCC</h3>
+      <p>Opção em manutenção</p>
+    </div>
+
+    <div class="card disabled">
+      <h3>Pré-TCC</h3>
+      <p>Opção em manutenção</p>
+    </div>
+
+    <div class="card" onclick="selecionarServico('Extracurriculares', 4.99)">
+      <h3>Extracurriculares</h3>
+      <p>Certificados válidos por 31 dias</p>
+      <strong>R$ 4,99</strong>
+    </div>
+
+    <button id="btnProsseguir" disabled onclick="irParaFase3()">
+      Prosseguir
+    </button>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
