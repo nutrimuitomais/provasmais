@@ -1,4 +1,4 @@
 function avancar() {
-  localStorage.setItem('servico', servico.value);
-  window.location.href = 'fase3.html';
+  localStorage.setItem('detalhes', detalhes.value);
+  window.location.href = 'fase4.html';
 }
