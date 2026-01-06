@@ -7,55 +7,51 @@
 </head>
 <body>
 
-<div class="container">
+<header class="top-header">
+  <img src="assets/logo.png" class="logo">
 
-  <img src="assets/logo.png" class="logo" alt="Logo">
-
-  <h1>Finalizar pagamento</h1>
-  <p class="subtitle">Escolha a forma de pagamento para concluir</p>
-
-  <!-- PROGRESSO -->
-  <div class="progress">
-    <span>Dados</span>
-    <span>Serviço</span>
-    <span>Detalhes</span>
-    <span class="active">Pagamento</span>
+  <div class="progress-bar">
+    <div class="progress" style="width: 100%;"></div>
   </div>
+</header>
 
-  <!-- VALOR -->
-  <div class="card selected">
-    <h2>Total a pagar</h2>
-    <h1 id="valorFinal">R$ 0,00</h1>
-  </div>
+<main class="container">
 
-  <!-- FORMAS DE PAGAMENTO -->
-  <div class="cards-container">
+  <h1>Pagamento</h1>
 
-    <div class="card pagamento" data-pagamento="pix">
+  <div class="card" id="valorFinal"></div>
+
+  <h2 style="margin-top:30px">Escolha a forma de pagamento</h2>
+
+  <div class="cards">
+    <div class="card metodo" onclick="selecionarMetodo('PIX')">
       💠 PIX<br>
       <small>Aprovação imediata</small>
     </div>
 
-    <div class="card pagamento" data-pagamento="cartao">
+    <div class="card metodo" onclick="selecionarMetodo('Crédito')">
       💳 Cartão de Crédito<br>
       <small>Até 12x</small>
     </div>
 
-    <div class="card pagamento" data-pagamento="debito">
-      🏧 Cartão de Débito<br>
-      <small>À vista</small>
+    <div class="card metodo" onclick="selecionarMetodo('Débito')">
+      💳 Cartão de Débito
     </div>
-
   </div>
 
-  <button id="btnPagar" disabled>Pagar agora</button>
+  <button class="button" id="btnPagar" style="margin-top:30px" onclick="pagar()" disabled>
+    Pagar agora
+  </button>
 
-  <p class="subtitle" style="margin-top:15px;">
+  <div class="alert" style="margin-top:20px">
     🔒 Pagamento seguro • Dados protegidos • Suporte via WhatsApp
-  </p>
+  </div>
 
-</div>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</main>
+
+<footer class="footer">
+  © 2026 • Plataforma Acadêmica • Todos os direitos reservados
+</footer>
 
 <script src="js/pagamento.js"></script>
 </body>
