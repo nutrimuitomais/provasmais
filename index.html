@@ -2,109 +2,63 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro Inicial - Portal Estudantil</title>
+  <title>Dados do Aluno</title>
   <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="style/progress.css">
 </head>
 <body>
 
-  <!-- Barra de Progresso -->
-  <div class="progress-container">
-    <div class="progress-step completed">Fase 1</div>
-    <div class="progress-step">Fase 2</div>
-    <div class="progress-step">Fase 3</div>
-    <div class="progress-step">Fase 4</div>
-  </div>
-
-<div class="container">
-
-  <!-- LOGO -->
+<header class="top-header">
   <img src="assets/logo.png" alt="Logo do Portal" class="logo">
 
-  <!-- TÍTULO -->
-  <h1>Preencha seus dados</h1>
-  <p class="subtitle">Organizamos tudo para você concluir suas atividades com tranquilidade</p>
+  <div class="progress-bar">
+    <div class="progress" style="width: 25%;"></div>
+  </div>
+</header>
 
-  <!-- PROGRESSO -->
-  <div class="progress">
-    <span class="active">Dados</span>
-    <span>Serviço</span>
-    <span>Detalhes</span>
-    <span>Pagamento</span>
+<main class="container">
+
+  <h1>Dados do Aluno</h1>
+
+  <div class="alert">
+    ⚠️ Não geramos códigos de redes sociais. Atenção a golpes.
   </div>
 
-  <!-- FORMULÁRIO -->
-  <form id="form-dados">
+  <label>Nome completo</label>
+  <input type="text" id="nome" placeholder="Digite seu nome completo">
 
-    <div class="form-grid">
-      <div class="form-group">
-        <input type="text" placeholder="Seu nome completo" required>
-      </div>
+  <label>Número de celular (WhatsApp)</label>
+  <input type="text" id="celular" placeholder="(XX) XXXXX-XXXX">
 
-      <div class="form-group">
-        <input type="tel" placeholder="Número de celular (WhatsApp)" required>
-      </div>
-    </div>
+  <label>Faculdade</label>
+  <select id="faculdade">
+    <option value="">Selecione</option>
+    <option>UNIP</option>
+    <option>MULTIVIX</option>
+    <option>FAESA</option>
+    <option>Outra</option>
+  </select>
 
-    <div class="form-grid">
-      <div class="form-group">
-        <select required>
-          <option value="">Selecione sua faculdade</option>
-          <option>UNIP</option>
-          <option>MULTIVIX</option>
-          <option>FAESA</option>
-          <option>Outra</option>
-        </select>
-      </div>
+  <label>Curso</label>
+  <select id="curso">
+    <option value="">Selecione</option>
+    <option>Enfermagem</option>
+    <option>Biomedicina</option>
+    <option>Farmácia</option>
+    <option>Fisioterapia</option>
+    <option>Nutrição</option>
+    <option>Psicologia</option>
+    <option>Educação Física</option>
+    <option>Outro</option>
+  </select>
 
-      <div class="form-group">
-        <select required>
-          <option value="">Selecione seu curso</option>
-          <option>Enfermagem</option>
-          <option>Biomedicina</option>
-          <option>Farmácia</option>
-          <option>Fisioterapia</option>
-          <option>Nutrição</option>
-          <option>Psicologia</option>
-          <option>Educação Física</option>
-          <option>Outro</option>
-        </select>
-      </div>
-    </div>
+  <button class="button" onclick="salvarDados()">Prosseguir</button>
 
-    <!-- ALERTA -->
-    <p class="subtitle" style="margin-top: 15px;">
-      ⚠️ Não geramos códigos de redes sociais. Atenção a golpes.
-    </p>
+</main>
 
-    <!-- BOTÃO -->
-    <button type="submit">Prosseguir</button>
+<footer class="footer">
+  © 2026 • Plataforma Acadêmica • Todos os direitos reservados
+</footer>
 
-  </form>
-
-</div>
-
-
-    <!-- Rodapé -->
-    <footer>
-      <img src="assets/logo.png" alt="Logo do Portal" class="logo-rodape">
-      <p>
-        🔒 Site seguro e criptografado<br>
-        ⚡ Facilidade para o seu dia a dia<br>
-        💬 Dúvidas? Nos chamem no WhatsApp<br>
-        ✅ Suporte até a conclusão do seu portal ou trabalho
-      </p>
-      <ul class="servicos">
-        <li>Provas</li>
-        <li>Trabalhos</li>
-        <li>Portal</li>
-        <li>Extracurriculares</li>
-      </ul>
-    </footer>
-  </div>
-
-  <script src="script/progress.js"></script>
-  <script src="script/script.js"></script>
+<script src="js/fase1.js"></script>
 </body>
 </html>
