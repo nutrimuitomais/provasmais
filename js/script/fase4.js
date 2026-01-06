@@ -1,40 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Resumo Final</title>
-  <link rel="stylesheet" href="style/style.css">
-</head>
-<body>
+// Recuperar dados
+const nome = localStorage.getItem('nome');
+const celular = localStorage.getItem('celular');
+const faculdade = localStorage.getItem('faculdade');
+const curso = localStorage.getItem('curso');
+const servico = localStorage.getItem('servico');
+const valor = localStorage.getItem('valor');
+const matricula = localStorage.getItem('matricula');
+const materias = localStorage.getItem('materias');
+const email = localStorage.getItem('email');
 
-<header class="top-header">
-  <img src="assets/logo.png" class="logo">
+// Validação básica
+if (!nome || !celular || !servico || !valor) {
+  window.location.href = 'index.html';
+}
 
-  <div class="progress-bar">
-    <div class="progress" style="width: 90%;"></div>
-  </div>
-</header>
+// Gerar ID único do aluno
+const alunoId = 'ALUNO-' + Date.now();
+localStorage.setItem('alunoId', alunoId);
 
-<main class="container">
+// Montar resumo
+let resumoHTML = `
+  <p><strong>Nº do Aluno:</strong> ${alunoId}</p>
+  <p><strong>Nome:</strong> ${nome}</p>
+  <p><strong>Celular:</strong> ${celular}</p>
+  <p><strong>Faculdade:</strong> ${faculdade}</p>
+  <p><strong>Curso:</strong> ${curso}</p>
+  <p><strong>Serviço:</strong> ${servico}</p>
+`;
 
-  <h1>Resumo da Solicitação</h1>
+if (matricula) {
+  resumoHTML += `<p><strong>Matrícula:</strong> ${matricula}</p>`;
+}
 
-  <div id="resumoCard" class="card"></div>
+if (materias && materias !== 'Não informado') {
+  resumoHTML += `<p><strong>Qtd. de Matérias:</strong> ${materias}</p>`;
+}
 
-  <div class="alert" style="margin-top:20px">
-    🔒 Seus dados estão protegidos. Após o pagamento entraremos em contato via WhatsApp.
-  </div>
+if (email) {
+  resumoHTML += `<p><strong>Email:</strong> ${email}</p>`;
+}
 
-  <button class="button" style="margin-top:30px" onclick="irPagamento()">
-    Ir para Pagamento
-  </button>
+resumoHTML += `
+  <hr style="margin:20px 0">
+  <p style="font-size:18px"><strong>Valor Final:</strong> R$ ${valor}</p>
+`;
 
-</main>
+document.getElementById('resumoCard').innerHTML = resumoHTML;
 
-<footer class="footer">
-  © 2026 • Plataforma Acadêmica • Todos os direitos reservados
-</footer>
-
-<script src="js/fase4.js"></script>
-</body>
-</html>
+// Avançar para pagamento
+function irPagamento() {
+  window.location.href = 'fase5.html';
+}
