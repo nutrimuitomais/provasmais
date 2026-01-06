@@ -1,63 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Dados do Aluno</title>
-  <link rel="stylesheet" href="style/style.css">
+<meta charset="UTF-8">
+<title>Dados do Aluno</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/progress.css">
 </head>
+
 <body>
+<div class="container">
 
-<header class="top-header">
-  <img src="assets/logo.png" alt="Logo do Portal" class="logo">
+<img src="assets/logo.png" class="logo">
 
-  <div class="progress-bar">
-    <div class="progress" style="width: 25%;"></div>
-  </div>
-</header>
+<div class="progress">
+  <div class="step active"><span>1</span><p>Dados</p></div>
+  <div class="step"><span>2</span><p>Serviço</p></div>
+  <div class="step"><span>3</span><p>Detalhes</p></div>
+  <div class="step"><span>4</span><p>Pagamento</p></div>
+</div>
 
-<main class="container">
+<h1>Dados do Aluno</h1>
 
-  <h1>Dados do Aluno</h1>
+<div class="form-group">
+  <label>Nome</label>
+  <input id="nome">
+</div>
 
-  <div class="alert">
-    ⚠️ Não geramos códigos de redes sociais. Atenção a golpes.
-  </div>
+<div class="form-group">
+  <label>Celular</label>
+  <input id="celular">
+</div>
 
-  <label>Nome completo</label>
-  <input type="text" id="nome" placeholder="Digite seu nome completo">
-
-  <label>Número de celular (WhatsApp)</label>
-  <input type="text" id="celular" placeholder="(XX) XXXXX-XXXX">
-
+<div class="form-group">
   <label>Faculdade</label>
-  <select id="faculdade">
-    <option value="">Selecione</option>
-    <option>UNIP</option>
-    <option>MULTIVIX</option>
-    <option>FAESA</option>
-    <option>Outra</option>
-  </select>
+  <input id="faculdade">
+</div>
 
+<div class="form-group">
   <label>Curso</label>
-  <select id="curso">
-    <option value="">Selecione</option>
-    <option>Enfermagem</option>
-    <option>Biomedicina</option>
-    <option>Farmácia</option>
-    <option>Fisioterapia</option>
-    <option>Nutrição</option>
-    <option>Psicologia</option>
-    <option>Educação Física</option>
-    <option>Outro</option>
-  </select>
+  <input id="curso">
+</div>
 
-  <button class="button" onclick="salvarDados()">Prosseguir</button>
+<button onclick="avancar()">Prosseguir</button>
 
-</main>
+<div class="info">
+  <div>🔒 Site seguro</div>
+  <div>⚡ Rápido e simples</div>
+  <div>💬 Suporte WhatsApp</div>
+  <div>✅ Até a conclusão</div>
+</div>
 
-<footer class="footer">
-  © 2026 • Plataforma Acadêmica • Todos os direitos reservados
-</footer>
+</div>
 
 <script src="js/fase1.js"></script>
 </body>
