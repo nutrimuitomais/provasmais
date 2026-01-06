@@ -1,59 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Pagamento</title>
-  <link rel="stylesheet" href="style/style.css">
+<meta charset="UTF-8">
+<title>Pagamento</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/progress.css">
 </head>
+
 <body>
+<div class="container">
 
-<header class="top-header">
-  <img src="assets/logo.png" class="logo">
+<img src="assets/logo.png" class="logo">
 
-  <div class="progress-bar">
-    <div class="progress" style="width: 100%;"></div>
-  </div>
-</header>
+<div class="progress">
+  <div class="step active"><span>1</span></div>
+  <div class="step active"><span>2</span></div>
+  <div class="step active"><span>3</span></div>
+  <div class="step active"><span>4</span></div>
+  <div class="step active"><span>5</span></div>
+</div>
 
-<main class="container">
+<h1>Pagamento</h1>
 
-  <h1>Pagamento</h1>
+<p>Valor final: <strong>R$ <span id="valor"></span></strong></p>
 
-  <div class="card" id="valorFinal"></div>
+<button onclick="pagar()">Pagar agora</button>
 
-  <h2 style="margin-top:30px">Escolha a forma de pagamento</h2>
+<p style="font-size:14px;color:#6b7280;margin-top:15px">
+🔒 Pagamento seguro • WhatsApp após confirmação
+</p>
 
-  <div class="cards">
-    <div class="card metodo" onclick="selecionarMetodo('PIX')">
-      💠 PIX<br>
-      <small>Aprovação imediata</small>
-    </div>
+</div>
 
-    <div class="card metodo" onclick="selecionarMetodo('Crédito')">
-      💳 Cartão de Crédito<br>
-      <small>Até 12x</small>
-    </div>
-
-    <div class="card metodo" onclick="selecionarMetodo('Débito')">
-      💳 Cartão de Débito
-    </div>
-  </div>
-
-  <button class="button" id="btnPagar" style="margin-top:30px" onclick="pagar()" disabled>
-    Pagar agora
-  </button>
-
-  <div class="alert" style="margin-top:20px">
-    🔒 Pagamento seguro • Dados protegidos • Suporte via WhatsApp
-  </div>
-
-</main>
-
-<footer class="footer">
-  © 2026 • Plataforma Acadêmica • Todos os direitos reservados
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script src="js/email.js"></script>
 <script src="js/pagamento.js"></script>
 </body>
 </html>
