@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Detalhes do Serviço</title>
-  <link rel="stylesheet" href="style/style.css">
+<meta charset="UTF-8">
+<title>Detalhes</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/progress.css">
 </head>
+
 <body>
+<div class="container">
 
-<header class="top-header">
-  <img src="assets/logo.png" class="logo">
+<img src="assets/logo.png" class="logo">
 
-  <div class="progress-bar">
-    <div class="progress" style="width: 75%;"></div>
-  </div>
-</header>
+<div class="progress">
+  <div class="step active"><span>1</span></div>
+  <div class="step active"><span>2</span></div>
+  <div class="step active"><span>3</span></div>
+  <div class="step"><span>4</span></div>
+</div>
 
-<main class="container">
+<h1>Detalhes do Pedido</h1>
 
-  <h1 id="tituloServico">Detalhes do Serviço</h1>
+<textarea id="detalhes" style="width:100%;height:120px"></textarea>
 
-  <!-- CONTEÚDO DINÂMICO -->
-  <div id="conteudoServico"></div>
+<button onclick="avancar()">Prosseguir</button>
 
-  <button class="button" style="margin-top:30px" onclick="prosseguir()">Prosseguir</button>
-
-</main>
-
-<footer class="footer">
-  © 2026 • Plataforma Acadêmica
-</footer>
+</div>
 
 <script src="js/fase3.js"></script>
 </body>
