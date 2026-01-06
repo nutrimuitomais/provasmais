@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Pagamento</title>
+<title>Resumo</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/progress.css">
 </head>
@@ -17,16 +17,17 @@
   <div class="step active"><span>2</span></div>
   <div class="step active"><span>3</span></div>
   <div class="step active"><span>4</span></div>
+  <div class="step"><span>5</span></div>
 </div>
 
-<h1>Pagamento</h1>
+<h1>Resumo do pedido</h1>
 
-<p>Valor: <strong>R$ 30,00</strong></p>
+<div class="info" id="resumo"></div>
 
-<button onclick="pagar()">Confirmar</button>
+<button onclick="avancar()">Ir para pagamento</button>
 
 </div>
 
-<script src="js/pagamento.js"></script>
+<script src="js/fase4.js"></script>
 </body>
 </html>
