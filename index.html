@@ -1,51 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Dados do Aluno</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/progress.css">
+  <meta charset="UTF-8">
+  <title>Portal Acadêmico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="container">
-<img src="assets/logo.png" class="logo">
+  <!-- PROGRESSO -->
+  <div class="progress">
+    <div class="step active">Dados</div>
+    <div class="step">Serviço</div>
+    <div class="step">Detalhes</div>
+    <div class="step">Pagamento</div>
+  </div>
 
-<div class="progress">
-  <div class="step active"><span>1</span><p>Dados</p></div>
-  <div class="step"><span>2</span><p>Serviço</p></div>
-  <div class="step"><span>3</span><p>Detalhes</p></div>
-  <div class="step"><span>4</span><p>Resumo</p></div>
-  <div class="step"><span>5</span><p>Pagamento</p></div>
-</div>
+  <!-- CONTAINER -->
+  <div class="container">
 
-<h1>Seus dados</h1>
+    <img src="assets/logo.png" class="logo" alt="Logo">
 
-<input id="nome" placeholder="Nome completo">
-<input id="celular" placeholder="WhatsApp">
-<input id="faculdade" placeholder="Faculdade">
-<input id="curso" placeholder="Curso">
+    <h1>Dados do aluno</h1>
+    <p class="subtitle">
+      Preencha corretamente para prosseguir com segurança
+    </p>
 
-<button onclick="avancar()">Prosseguir</button>
+    <form>
 
-<p class="alert">⚠️ Não geramos códigos de redes sociais</p>
-</div>
+      <label>Nome completo</label>
+      <input type="text" placeholder="Digite seu nome completo" required>
 
-<script src="js/fase1.js"></script>
+      <label>WhatsApp</label>
+      <input type="tel" placeholder="(XX) XXXXX-XXXX" required>
+
+      <label>Faculdade</label>
+      <select required>
+        <option value="">Selecione</option>
+        <option>UNIP</option>
+        <option>MULTIVIX</option>
+        <option>FAESA</option>
+        <option>Outra</option>
+      </select>
+
+      <label>Curso</label>
+      <select required>
+        <option value="">Selecione</option>
+        <option>Enfermagem</option>
+        <option>Biomedicina</option>
+        <option>Farmácia</option>
+        <option>Fisioterapia</option>
+        <option>Nutrição</option>
+        <option>Psicologia</option>
+        <option>Educação Física</option>
+      </select>
+
+      <button type="submit">
+        Prosseguir
+      </button>
+
+    </form>
+
+    <div class="info">
+      <p>🔒 Site seguro e criptografado</p>
+      <p>💬 Suporte via WhatsApp</p>
+      <p>✅ Acompanhamento até a conclusão</p>
+    </div>
+
+  </div>
+
 </body>
 </html>
-<h2>O que você precisa?</h2>
-
-<div class="card" onclick="selecionarServico('Provas')">
-  <h3>Provas</h3>
-  <p>Realizamos suas provas com segurança</p>
-  <strong>R$ 43,00</strong>
-</div>
-
-<div class="card" onclick="selecionarServico('Trabalhos')">
-  <h3>Trabalhos</h3>
-  <p>Trabalhos acadêmicos personalizados</p>
-  <strong>R$ 57,00</strong>
-</div>
-
-<input type="hidden" id="servicoSelecionado">
