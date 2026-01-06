@@ -1,55 +1,49 @@
-// CONFIGURAÇÕES EMAILJS
-(function () {
-  emailjs.init("SUA_PUBLIC_KEY_AQUI");
-})();
+const valor = localStorage.getItem('valor');
+const alunoId = localStorage.getItem('alunoId');
 
-const valor = localStorage.getItem("valor") || "0.00";
-const btnPagar = document.getElementById("btnPagar");
-const botoesPagamento = document.querySelectorAll(".pagamento");
+if (!valor || !alunoId) {
+  window.location.href = 'index.html';
+}
 
-let metodoSelecionado = null;
+// Mostrar valor final
+document.getElementById('valorFinal').innerHTML = `
+  <h2>Valor Final</h2>
+  <p style="font-size:22px; margin-top:10px">
+    <strong>R$ ${valor}</strong>
+  </p>
+`;
 
-document.getElementById("valorFinal").textContent = `R$ ${valor}`;
+let metodoSelecionado = '';
 
-// Seleção do método
-botoesPagamento.forEach(botao => {
-  botao.addEventListener("click", () => {
-    botoesPagamento.forEach(b => b.classList.remove("selected"));
-    botao.classList.add("selected");
-    metodoSelecionado = botao.dataset.pagamento;
-    btnPagar.disabled = false;
-  });
-});
+// Selecionar método
+function selecionarMetodo(metodo) {
+  metodoSelecionado = metodo;
+  document.getElementById('btnPagar').disabled = false;
 
-// PAGAMENTO + ENVIO DE E-MAIL
-btnPagar.addEventListener("click", () => {
-
-  const dados = {
-    numero_aluno: localStorage.getItem("numeroAluno"),
-    nome: localStorage.getItem("nome"),
-    celular: localStorage.getItem("celular"),
-    faculdade: localStorage.getItem("faculdade"),
-    curso: localStorage.getItem("curso"),
-    servico: localStorage.getItem("servicoSelecionado"),
-    valor: valor
-  };
-
-  emailjs.send(
-    "SEU_SERVICE_ID",
-    "SEU_TEMPLATE_ID",
-    dados
-  ).then(() => {
-
-    alert(
-      "Pedido confirmado!\n\n" +
-      "Resumo enviado para nosso sistema.\n" +
-      "Entraremos em contato pelo WhatsApp."
-    );
-
-    localStorage.clear();
-
-  }).catch(() => {
-    alert("Erro ao enviar o pedido. Tente novamente.");
+  document.querySelectorAll('.metodo').forEach(card => {
+    card.classList.remove('selected');
   });
 
-});
+  event.target.classList.add('selected');
+}
+
+// Simular pagamento (preparado para gateway real)
+function pagar() {
+  if (!metodoSelecionado) {
+    alert('Selecione uma forma de pagamento.');
+    return;
+  }
+
+  localStorage.setItem('metodoPagamento', metodoSelecionado);
+
+  // 🚀 Aqui entra o gateway real (Mercado Pago / Stripe / Asaas)
+  // Por enquanto, simulamos pagamento aprovado
+
+  alert('Pagamento aprovado com sucesso!');
+
+  // Após pagamento → envio de email
+  enviarEmail();
+
+  // Limpeza opcional / redirecionamento futuro
+  // window.location.href = 'sucesso.html';
+}
