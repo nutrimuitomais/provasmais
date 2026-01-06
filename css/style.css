@@ -76,3 +76,21 @@ button:hover {
   text-align: center;
   color: #92400e;
 }
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.card:hover {
+  border-color: #1a73e8;
+  box-shadow: 0 10px 30px rgba(26,115,232,.15);
+}
+
+.card.selected {
+  border-color: #1a73e8;
+  background: #f0f7ff;
+}
