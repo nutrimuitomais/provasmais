@@ -1,96 +1,129 @@
-const servico = localStorage.getItem("servicoSelecionado");
-const conteudo = document.getElementById("conteudo");
-const btn = document.getElementById("btnContinuar");
+const servico = localStorage.getItem('servico');
+const container = document.getElementById('conteudoServico');
+const titulo = document.getElementById('tituloServico');
 
 let valorFinal = 0;
 
-function campoMatricula() {
-  return `
-    <div class="form-group">
-      <input type="text" id="matricula" placeholder="Matrícula completa" required>
-      <p class="subtitle">
-        Preencha corretamente, respeitando letras maiúsculas e numeração.
-      </p>
-    </div>
-
-    <div class="form-group">
-      <input type="number" id="qtdMaterias" placeholder="Quantidade de matérias (opcional)">
-      <p class="subtitle">
-        Acima de 12 matérias será cobrado R$ 7,00 por matéria extra.
-      </p>
-    </div>
-  `;
+if (!servico) {
+  window.location.href = 'fase2.html';
 }
 
-if (servico === "provas") {
-  valorFinal = 43.00;
+// 🔹 PROVAS
+if (servico === 'Provas') {
+  titulo.innerText = 'Provas';
 
-  conteudo.innerHTML = `
-    <h2>Provas</h2>
-    ${campoMatricula()}
-    <h3>Valor: R$ 43,00</h3>
+  container.innerHTML = `
+    <p><strong>Valor:</strong> R$ 43,00</p><br>
 
-    <div class="card" id="upsell">
-      Adicione Portal por apenas <strong>R$ 2,00</strong>
+    <label>Matrícula completa</label>
+    <input type="text" id="matricula" placeholder="Digite exatamente como está no portal">
+
+    <label>Quantidade de matérias (opcional)</label>
+    <input type="number" id="materias" placeholder="Ex: 5">
+
+    <div class="alert">
+      Acima de 12 matérias será cobrado R$ 7,00 por matéria adicional.
+    </div>
+
+    <div class="card" onclick="adicionarPortal()">
+      ➕ Adicionar Portal por apenas <strong>R$ 2,00</strong>
     </div>
   `;
 
-  btn.style.display = "block";
-
-  document.getElementById("upsell").addEventListener("click", () => {
-    localStorage.setItem("servicoSelecionado", "provas_portal");
-    localStorage.setItem("valor", "45.00");
-    window.location.reload();
-  });
-
+  valorFinal = 43;
 }
 
-else if (servico === "provas_portal") {
-  valorFinal = 45.00;
+// 🔹 PROVAS + PORTAL
+if (servico === 'Provas + Portal') {
+  titulo.innerText = 'Provas + Portal';
 
-  conteudo.innerHTML = `
-    <h2>Provas + Portal</h2>
-    ${campoMatricula()}
-    <h3>Valor: R$ 45,00</h3>
+  container.innerHTML = `
+    <p><strong>Valor:</strong> R$ 45,00</p><br>
+
+    <label>Matrícula completa</label>
+    <input type="text" id="matricula" placeholder="Digite exatamente como está no portal">
+
+    <label>Quantidade de matérias (opcional)</label>
+    <input type="number" id="materias" placeholder="Ex: 5">
   `;
 
-  btn.style.display = "block";
+  valorFinal = 45;
 }
 
-else if (servico === "tcc" || servico === "pre_tcc") {
-  conteudo.innerHTML = `
-    <h2>Em manutenção</h2>
-    <p class="subtitle">
-      As opções TCC e Pré-TCC estão temporariamente indisponíveis.
-    </p>
-    <button onclick="history.back()">Voltar</button>
+// 🔹 TCC / PRÉ-TCC
+if (servico === 'TCC' || servico === 'Pré-TCC') {
+  titulo.innerText = servico;
+
+  container.innerHTML = `
+    <div class="alert">
+      🚧 Estamos em manutenção nesta opção no momento.
+    </div>
+
+    <button class="button" onclick="voltar()">Voltar</button>
   `;
+
+  document.querySelector('.button').style.display = 'none';
 }
 
-else if (servico === "extracurriculares") {
+// 🔹 EXTRACURRICULARES
+if (servico === 'Extracurriculares') {
+  titulo.innerText = 'Extracurriculares';
+
+  container.innerHTML = `
+    <p><strong>Valor:</strong> R$ 4,99</p><br>
+
+    <div class="alert">
+      ✔ Sites gratuitos e seguros<br>
+      ✔ Certificados válidos<br>
+      ✔ 20 sugestões conforme seu curso<br>
+      ✔ Acesso por 31 dias<br><br>
+      💰 Garantia: Caso não consiga gerar nenhum certificado em 31 dias, devolvemos seu dinheiro.
+    </div>
+
+    <label>Gmail para acesso</label>
+    <input type="email" id="email" placeholder="Digite seu Gmail">
+  `;
+
   valorFinal = 4.99;
-
-  conteudo.innerHTML = `
-    <h2>Extracurriculares</h2>
-
-    <p class="subtitle">
-      🔒 Fique tranquilo: caso você não consiga gerar nenhum certificado
-      durante 31 dias, devolveremos seu dinheiro.
-    </p>
-
-    <p class="subtitle">
-      ✔ Sites 100% gratuitos, seguros e confiáveis<br>
-      ✔ 20 sugestões de acordo com seu curso<br>
-      ✔ Acesso por 31 dias
-    </p>
-
-    <h3>Valor: R$ 4,99</h3>
-  `;
-
-  btn.style.display = "block";
 }
 
-btn.addEventListener("click", () => {
-  localStorage.setItem("valor", valorFinal.toFixed(2));
-  window.location.href = "fase4.html";
-});
+// ➕ UPSSELL
+function adicionarPortal() {
+  localStorage.setItem('servico', 'Provas + Portal');
+  localStorage.setItem('upsell', 'true');
+  valorFinal = 45;
+  alert('Portal adicionado com sucesso!');
+}
+
+// ▶️ PROSSEGUIR
+function prosseguir() {
+  localStorage.setItem('valor', valorFinal.toFixed(2));
+
+  if (servico.includes('Provas')) {
+    const matricula = document.getElementById('matricula')?.value;
+    if (!matricula) {
+      alert('Informe a matrícula.');
+      return;
+    }
+    localStorage.setItem('matricula', matricula);
+
+    const materias = document.getElementById('materias')?.value;
+    localStorage.setItem('materias', materias || 'Não informado');
+  }
+
+  if (servico === 'Extracurriculares') {
+    const email = document.getElementById('email').value;
+    if (!email) {
+      alert('Informe o Gmail.');
+      return;
+    }
+    localStorage.setItem('email', email);
+  }
+
+  window.location.href = 'fase4.html';
+}
+
+// ⬅️ VOLTAR
+function voltar() {
+  window.location.href = 'fase2.html';
+}
