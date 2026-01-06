@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Resumo Final</title>
-  <link rel="stylesheet" href="style/style.css">
+<meta charset="UTF-8">
+<title>Pagamento</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/progress.css">
 </head>
+
 <body>
+<div class="container">
 
-<header class="top-header">
-  <img src="assets/logo.png" class="logo">
+<img src="assets/logo.png" class="logo">
 
-  <div class="progress-bar">
-    <div class="progress" style="width: 90%;"></div>
-  </div>
-</header>
+<div class="progress">
+  <div class="step active"><span>1</span></div>
+  <div class="step active"><span>2</span></div>
+  <div class="step active"><span>3</span></div>
+  <div class="step active"><span>4</span></div>
+</div>
 
-<main class="container">
+<h1>Pagamento</h1>
 
-  <h1>Resumo da Solicitação</h1>
+<p>Valor: <strong>R$ 30,00</strong></p>
 
-  <div id="resumoCard" class="card"></div>
+<button onclick="pagar()">Confirmar</button>
 
-  <div class="alert" style="margin-top:20px">
-    🔒 Seus dados estão protegidos. Após o pagamento entraremos em contato via WhatsApp.
-  </div>
+</div>
 
-  <button class="button" style="margin-top:30px" onclick="irPagamento()">
-    Ir para Pagamento
-  </button>
-
-</main>
-
-<footer class="footer">
-  © 2026 • Plataforma Acadêmica • Todos os direitos reservados
-</footer>
-
-<script src="js/fase4.js"></script>
+<script src="js/pagamento.js"></script>
 </body>
 </html>
