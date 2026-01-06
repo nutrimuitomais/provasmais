@@ -1,7 +1,7 @@
 .progress {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .step {
@@ -11,40 +11,39 @@
   color: #9ca3af;
 }
 
-.step::before {
-  content: "";
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  right: -50%;
   width: 100%;
   height: 4px;
   background: #e5e7eb;
-  position: absolute;
-  top: 12px;
-  left: -50%;
-  z-index: -1;
-}
-
-.step:first-child::before {
-  display: none;
+  z-index: 0;
 }
 
 .step span {
-  display: inline-block;
-  width: 28px;
-  height: 28px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: #e5e7eb;
-  line-height: 28px;
+  position: relative;
+  z-index: 1;
 }
 
 .step.active {
-  color: #2563eb;
-  font-weight: bold;
+  color: #1a73e8;
+  font-weight: 600;
 }
 
 .step.active span {
-  background: #2563eb;
+  background: #1a73e8;
   color: white;
 }
 
-.step.active::before {
-  background: #2563eb;
+.step.active::after {
+  background: #1a73e8;
 }
