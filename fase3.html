@@ -7,27 +7,28 @@
 </head>
 <body>
 
-<div class="container">
+<header class="top-header">
+  <img src="assets/logo.png" class="logo">
 
-  <img src="assets/logo.png" class="logo" alt="Logo">
-
-  <h1>Detalhes do serviço</h1>
-  <p class="subtitle">Confira as informações antes de continuar</p>
-
-  <!-- PROGRESSO -->
-  <div class="progress">
-    <span>Dados</span>
-    <span>Serviço</span>
-    <span class="active">Detalhes</span>
-    <span>Pagamento</span>
+  <div class="progress-bar">
+    <div class="progress" style="width: 75%;"></div>
   </div>
+</header>
+
+<main class="container">
+
+  <h1 id="tituloServico">Detalhes do Serviço</h1>
 
   <!-- CONTEÚDO DINÂMICO -->
-  <div id="conteudo"></div>
+  <div id="conteudoServico"></div>
 
-  <button id="btnContinuar" style="display:none;">Continuar</button>
+  <button class="button" style="margin-top:30px" onclick="prosseguir()">Prosseguir</button>
 
-</div>
+</main>
+
+<footer class="footer">
+  © 2026 • Plataforma Acadêmica
+</footer>
 
 <script src="js/fase3.js"></script>
 </body>
